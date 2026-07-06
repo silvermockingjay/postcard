@@ -1,14 +1,16 @@
-import type { ReactNode } from 'react';
+import type { MouseEventHandler, ReactNode } from 'react';
 
 interface ButtonProps {
   variant: 'primary' | 'secondary' | 'warning';
+  type?: 'button' | 'submit' | 'reset';
   isDisabled?: boolean;
-  onClick?: () => void;
+  onClick?: MouseEventHandler<HTMLButtonElement>;
   children: ReactNode;
 }
 
 export default function Button({
   variant,
+  type = 'button',
   isDisabled,
   onClick,
   children,
@@ -21,6 +23,7 @@ export default function Button({
 
   return (
     <button
+      type={type}
       className={`flex items-center justify-center min-w-[113px] font-sans text-base ${variants[variant]} rounded-lg py-[8px] px-[32px] disabled:bg-slate-200 disabled:text-slate-700`}
       disabled={isDisabled}
       onClick={onClick}
