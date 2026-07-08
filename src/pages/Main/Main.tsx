@@ -1,7 +1,8 @@
-import { Button, Input, Textarea } from '@/components';
+import { Button, Input, Textarea, Select } from '@/components';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Invitation } from '@/utils/schema';
+import { themes } from '@/utils/themes';
 
 export default function Main() {
   const {
@@ -52,6 +53,14 @@ export default function Main() {
           labelText="Address"
           {...register('address')}
           error={errors.address?.message}
+        />
+        <Select
+          id="theme"
+          labelText="Choose invitation theme"
+          placeholderText="--Please, choose an option--"
+          options={themes}
+          {...register('theme')}
+          error={errors.theme?.message}
         />
         <Textarea
           id="details"
