@@ -1,3 +1,12 @@
+import { Outlet } from 'react-router';
+import { Header, Footer } from '@/components';
+
 export default function App() {
-  return <div>Here is my app component</div>;
+  return (
+    <>
+      <Header />
+      <Outlet />
+      <Footer />
+    </>
+  );
 }
