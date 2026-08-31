@@ -2,7 +2,7 @@ import { createBrowserRouter, type LoaderFunctionArgs } from 'react-router';
 import { default as App } from './App';
 import { Invitation, Main, NotFound } from '@/pages';
 import { getInvitation } from '@/services';
-import { AppErrorBoundary } from '@/boundaries';
+import { AppErrorBoundary, InvitationErrorBoundary } from '@/boundaries';
 
 export const router = createBrowserRouter([
   {
@@ -19,6 +19,7 @@ export const router = createBrowserRouter([
           return getInvitation(params.id);
         },
         Component: Invitation,
+        ErrorBoundary: InvitationErrorBoundary,
       },
       { path: '*', Component: NotFound },
     ],
