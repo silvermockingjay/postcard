@@ -18,12 +18,12 @@ export default function Fallback({
   onClick,
 }: FallbackProps) {
   return (
-    <div className="flex flex-col justify-start items-center gap=[20px] p-4 w-3/5 border border-solid border-zinc-200 rounded-md">
-      {Icon && <Icon size={24} color="pink-400" strokeWidth={2} />}
-      <div className="flex flex-col justify-start gap=[12px] w-full">
+    <div className="flex flex-col justify-start items-center gap-[20px] p-4 w-3/5 border border-solid border-zinc-200 rounded-md">
+      {Icon && <Icon size={24} className="text-pink-400" strokeWidth={2} />}
+      <div className="flex flex-col justify-start items-center gap-[12px] w-full">
         <div className="font-sans text-center">
           <h1 className="font-semibold text-black">{title}</h1>
-          <p className="font-base text-zinc-300">{message}</p>
+          <p className="font-base text-zinc-400">{message}</p>
         </div>
         <Button variant="primary" onClick={onClick}>
           {btnTxt}
