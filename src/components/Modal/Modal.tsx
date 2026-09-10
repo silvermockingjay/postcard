@@ -2,6 +2,8 @@ import { Button, Input } from '@/components';
 import { createPortal } from 'react-dom';
 import { CircleCheck, SearchAlert } from 'lucide-react';
 import { useNavigate } from 'react-router';
+import { copyToClipboard } from '@/utils/copyToClipboard';
+import { useState } from 'react';
 
 interface ModalProps {
   error?: string;
@@ -10,8 +12,14 @@ interface ModalProps {
 }
 
 export default function Modal({ error, success, onClose }: ModalProps) {
+  const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
   const path = `invitation/${success}`;
+  const handleCopy = async () => {
+    await copyToClipboard(path);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 3000);
+  };
   if (!success && !error) return null;
   return createPortal(
     <div className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-zinc-100/75">
@@ -40,7 +48,9 @@ export default function Modal({ error, success, onClose }: ModalProps) {
               <Button variant="primary" onClick={() => navigate(path)}>
                 View
               </Button>
-              <Button variant="secondary">Copy</Button>
+              <Button variant="secondary" onClick={handleCopy}>
+                {copied ? 'Copied!' : 'Copy'}
+              </Button>
             </div>
           </div>
         )}
