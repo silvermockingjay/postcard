@@ -1,5 +1,4 @@
 import * as z from 'zod';
-import { themes } from './themes';
 
 export const Invitation = z.object({
   name: z
@@ -37,10 +36,6 @@ export const Invitation = z.object({
       /^(?=.*\p{L})(?=.*\d)[\p{L}\d\s.,'#/()-]+$/u,
       'Address must contain at least one letter and one number'
     ),
-  theme: z.enum(
-    themes.map((elem) => elem.value),
-    { error: 'Theme required' }
-  ),
   details: z.string().optional(),
 });
 
