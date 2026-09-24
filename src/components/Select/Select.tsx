@@ -20,14 +20,14 @@ export default function Select({
   ...selectProps
 }: SelectProps) {
   return (
-    <div className="flex flex-col w-full font-sans text-base text-black gap-[8px]">
+    <div className="flex flex-col w-full font-sans text-base text-black gap-2">
       <label className="font-semibold" htmlFor={selectProps.id}>
         {labelText}
       </label>
       <select
         name={selectProps.name}
         id={selectProps.id}
-        className="py-[8px] border border-solid border-zinc-200 rounded-md cursor-pointer"
+        className="py-2 border border-solid border-zinc-200 rounded-md cursor-pointer"
         {...selectProps}
       >
         {placeholderText && <option value="">{placeholderText}</option>}
