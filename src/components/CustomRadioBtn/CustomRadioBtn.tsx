@@ -24,6 +24,7 @@ export default function CustomRadioBtn({
               type="radio"
               name={name}
               id={elem.value}
+              value={elem.value}
               className="peer sr-only"
               defaultChecked={elem.value === 'standard'}
             />
