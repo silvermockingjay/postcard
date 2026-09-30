@@ -106,7 +106,11 @@ export default function Main() {
             placeholder="No gifts, please! Only smiles!"
             {...register('details')}
           />
-          <CustomRadioBtn title="Invitation style" name="theme" info={themes} />
+          <CustomRadioBtn
+            title="Invitation style"
+            info={themes}
+            {...register('theme')}
+          />
           <div className="flex flex-row justify-end items-center w-full">
             <Button
               variant="primary"
