@@ -1,11 +1,18 @@
-import { Button, Input, Textarea, Modal, CustomRadioBtn } from '@/components';
+import {
+  Background,
+  Button,
+  Input,
+  Textarea,
+  Modal,
+  CustomRadioBtn,
+} from '@/components';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Invitation } from '@/utils/schema';
 import { themes } from '@/utils/themes';
 import { createInvitation } from '@/services/APIrequests';
 import { useState } from 'react';
-import { MainBackground } from '@/components/backgrounds';
+import { mainBackground } from '@/utils/backgrounds';
 import { ArrowRight } from 'lucide-react';
 
 export default function Main() {
@@ -43,7 +50,7 @@ export default function Main() {
   };
   return (
     <main className="z-10">
-      <MainBackground />
+      <Background background={mainBackground} />
       <div className="flex flex-col justify-start items-center p-8 font-sans text-lg text-black gap-8">
         <h1 className="font-fraunces text-6xl text-center font-medium z-10">
           Good plans deserve <br /> good invitations

@@ -1,3 +1,4 @@
+export * from './Background';
 export * from './Button';
 export * from './CustomRadioBtn';
 export * from './Fallback';
