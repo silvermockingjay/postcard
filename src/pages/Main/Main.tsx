@@ -49,19 +49,19 @@ export default function Main() {
     setSuccess('');
   };
   return (
-    <main className="z-10">
+    <div>
       <Background background={mainBackground} />
-      <div className="flex flex-col justify-start items-center p-8 font-sans text-lg text-black gap-8">
-        <h1 className="font-fraunces text-6xl text-center font-medium z-10">
+      <div className="flex flex-col justify-start items-center p-8 font-sans text-lg text-black gap-8 z-10">
+        <h1 className="font-fraunces text-6xl text-center font-medium">
           Good plans deserve <br /> good invitations
         </h1>
-        <p className="text-zinc-400 text-center w-1/3 z-10">
+        <p className="text-zinc-400 text-center w-1/3">
           Fill in the details. Invity turns them into an invitation your guests
           will actually read - no design skills required.
         </p>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="flex flex-col gap-4 w-2/5 border border-solid border-zinc-200 rounded-xl p-8 bg-white shadow-xl z-10"
+          className="flex flex-col gap-4 w-2/5 border border-solid border-zinc-200 rounded-xl p-8 bg-white shadow-xl"
         >
           <Input
             id="title"
@@ -126,6 +126,6 @@ export default function Main() {
         </form>
       </div>
       <Modal error={error} success={success} onClose={closeModal} />
-    </main>
+    </div>
   );
 }
