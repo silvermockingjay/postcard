@@ -33,7 +33,7 @@ export default function InvitationCard({
           cardStyles[theme].fontHeader
         )}
       >
-        <h1 className={clsx('text-3xl', cardStyles[theme].color)}>{title}</h1>
+        <h1 className={clsx('text-4xl', cardStyles[theme].color)}>{title}</h1>
         <p className="text-xl">Hosted by {name}</p>
       </div>
       <div className="flex flex-col justify-start items-center gap-2">

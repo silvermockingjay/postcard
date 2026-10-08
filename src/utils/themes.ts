@@ -28,7 +28,7 @@ export const cardStyles: CardStylesProps = {
     colorSecondary: 'text-zinc-400',
     bg: 'bg-white',
     btnColor: 'text-white',
-    btnBackground: 'bg-emerald-400',
+    btnBackground: 'bg-emerald-400 hover:bg-green-400 transition-colors',
     marker: 'marker:text-emerald-400',
   },
   birthday: {
@@ -39,7 +39,7 @@ export const cardStyles: CardStylesProps = {
     colorSecondary: 'text-zinc-400',
     bg: 'bg-white',
     btnColor: 'text-white',
-    btnBackground: 'bg-amber-500',
+    btnBackground: 'bg-amber-500 hover:bg-yellow-400 transition-colors',
     marker: 'marker:text-amber-500',
   },
   romantic: {
@@ -50,7 +50,7 @@ export const cardStyles: CardStylesProps = {
     colorSecondary: 'text-zinc-400',
     bg: 'bg-white',
     btnColor: 'text-white',
-    btnBackground: 'bg-rose-900',
+    btnBackground: 'bg-rose-900 hover:bg-pink-600 transition-colors',
     marker: 'marker:text-rose-900',
   },
 };
