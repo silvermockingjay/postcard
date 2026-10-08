@@ -7,11 +7,16 @@ export default function InvitationCard({
   name,
   title,
   datetime,
+  timezone,
   venue,
   address,
   theme,
   details,
 }: Invitation) {
+  const [date, time] = datetime.split('T');
+  const [year, month, day] = date.split('-');
+  const [hour, minutes] = time.split(':');
+  const formattedDate = `${day}.${month}.${year} \u2022 ${hour}:${minutes}, timezone: ${timezone}`;
   return (
     <div
       className={clsx(
@@ -40,7 +45,7 @@ export default function InvitationCard({
             cardStyles[theme].color
           )}
         >
-          <li>{datetime}</li>
+          <li>{formattedDate}</li>
           <li>{venue}</li>
           <li>{address}</li>
         </ul>
