@@ -3,6 +3,7 @@ export * from './Button';
 export * from './CustomRadioBtn';
 export * from './Fallback';
 export * from './Input';
+export * from './InvitationCard';
 export * from './Textarea';
 export * from './Select';
 export * from './Modal';
