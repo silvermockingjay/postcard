@@ -22,7 +22,7 @@ export default function Modal({ error, success, onClose }: ModalProps) {
   };
   if (!success && !error) return null;
   return createPortal(
-    <div className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-zinc-100/75">
+    <div className="fixed top-0 left-0 w-full h-full flex flex-col justify-center items-center bg-zinc-100/75 z-10">
       <div className="flex flex-col justify-start items-center gap-[20px] p-4 w-1/2 h-1/3 border border-solid border-zinc-200 rounded-md relative bg-zinc-50">
         {error && (
           <div className="flex flex-col justify-center items-center gap-[20px] w-full">
