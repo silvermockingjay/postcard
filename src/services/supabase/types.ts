@@ -46,6 +46,7 @@ export type Database = {
           id: string;
           name: string;
           theme: string;
+          timezone: string;
           title: string;
           venue: string;
         };
@@ -57,6 +58,7 @@ export type Database = {
           id?: never;
           name: string;
           theme: string;
+          timezone: string;
           title: string;
           venue: string;
         };
@@ -68,6 +70,7 @@ export type Database = {
           id?: never;
           name?: string;
           theme?: string;
+          timezone: string;
           title?: string;
           venue?: string;
         };

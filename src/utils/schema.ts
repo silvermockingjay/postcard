@@ -1,5 +1,6 @@
 import * as z from 'zod';
 import { themes } from './themes';
+import { timezones } from './timezones';
 
 export const Invitation = z.object({
   name: z
@@ -24,6 +25,10 @@ export const Invitation = z.object({
     .refine((value) => new Date(value) >= new Date(), {
       error: 'Date and time cannot be in past',
     }),
+  timezone: z.enum(
+    timezones.map((elem) => elem.value),
+    { error: 'Timezone required' }
+  ),
   venue: z
     .string()
     .trim()

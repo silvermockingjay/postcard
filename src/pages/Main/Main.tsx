@@ -5,11 +5,13 @@ import {
   Textarea,
   Modal,
   CustomRadioBtn,
+  Select,
 } from '@/components';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Invitation } from '@/utils/schema';
 import { themes } from '@/utils/themes';
+import { timezones } from '@/utils/timezones';
 import { createInvitation } from '@/services/APIrequests';
 import { useState } from 'react';
 import { mainBackground } from '@/utils/backgrounds';
@@ -70,13 +72,20 @@ export default function Main() {
             {...register('title')}
             error={errors.title?.message}
           />
+          <Input
+            id="name"
+            labelText="Hosted by"
+            placeholder="Anastasia"
+            {...register('name')}
+            error={errors.name?.message}
+          />
           <div className="grid grid-cols-2 gap-4">
             <Input
-              id="name"
-              labelText="Hosted by"
-              placeholder="Anastasia"
-              {...register('name')}
-              error={errors.name?.message}
+              id="venue"
+              labelText="Venue"
+              placeholder="Wine&Art Cafe"
+              {...register('venue')}
+              error={errors.venue?.message}
             />
             <Input
               id="datetime"
@@ -86,18 +95,18 @@ export default function Main() {
               error={errors.datetime?.message}
             />
             <Input
-              id="venue"
-              labelText="Venue"
-              placeholder="Wine&Art Cafe"
-              {...register('venue')}
-              error={errors.venue?.message}
-            />
-            <Input
               id="address"
               labelText="Address"
               placeholder="Moscow, ul. Krasivaya, 28"
               {...register('address')}
               error={errors.address?.message}
+            />
+            <Select
+              labelText="Timezone"
+              placeholderText="Choose meeting timezone"
+              options={timezones}
+              {...register('timezone')}
+              error={errors.timezone?.message}
             />
           </div>
           <Textarea
