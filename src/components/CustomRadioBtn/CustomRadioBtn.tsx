@@ -1,18 +1,19 @@
+import type { InputHTMLAttributes } from 'react';
+
 interface Data {
   id: number;
   value: string;
 }
 
-interface CustomRadioBtnProps {
+interface CustomRadioBtnProps extends InputHTMLAttributes<HTMLInputElement> {
   title: string;
-  name: string;
   info: Data[];
 }
 
 export default function CustomRadioBtn({
   title,
-  name,
   info,
+  ...inputProps
 }: CustomRadioBtnProps) {
   return (
     <div className="flex flex-col w-full font-sans text-base text-black">
@@ -22,11 +23,11 @@ export default function CustomRadioBtn({
           <div key={elem.id}>
             <input
               type="radio"
-              name={name}
               id={elem.value}
               value={elem.value}
               className="peer sr-only"
               defaultChecked={elem.value === 'standard'}
+              {...inputProps}
             />
             <label
               htmlFor={elem.value}
