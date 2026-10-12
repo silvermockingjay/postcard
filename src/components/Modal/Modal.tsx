@@ -15,8 +15,9 @@ export default function Modal({ error, success, onClose }: ModalProps) {
   const [copied, setCopied] = useState(false);
   const navigate = useNavigate();
   const path = `invitation/${success}`;
+  const url = new URL(path, window.location.origin).href;
   const handleCopy = async () => {
-    await copyToClipboard(path);
+    await copyToClipboard(url);
     setCopied(true);
     setTimeout(() => setCopied(false), 3000);
   };
@@ -44,7 +45,7 @@ export default function Modal({ error, success, onClose }: ModalProps) {
               Congrats! Your invitation is ready!
             </p>
             <div className="flex flex-row w-full justify-center items-center gap-[20px]">
-              <Input type="text" value={path} readOnly />
+              <Input type="text" value={url} readOnly />
               <Button variant="primary" onClick={() => navigate(path)}>
                 View
               </Button>
