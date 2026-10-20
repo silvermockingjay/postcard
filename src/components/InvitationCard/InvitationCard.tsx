@@ -2,8 +2,15 @@ import type { Invitation } from '@/utils/schema';
 import { cardStyles } from '@/utils/themes';
 import { clsx } from 'clsx';
 import { Button } from '../Button';
+import { addToCalendar, formatDateTZ } from '@/utils/addToCalendar';
+
+interface ReceivedInvitation extends Omit<Invitation, 'details'> {
+  id: string;
+  details: string | null;
+}
 
 export default function InvitationCard({
+  id,
   name,
   title,
   datetime,
@@ -12,11 +19,11 @@ export default function InvitationCard({
   address,
   theme,
   details,
-}: Invitation) {
-  const [date, time] = datetime.split('T');
-  const [year, month, day] = date.split('-');
-  const [hour, minutes] = time.split(':');
-  const formattedDate = `${day}.${month}.${year} \u2022 ${hour}:${minutes}, timezone: ${timezone}`;
+}: ReceivedInvitation) {
+  const formattedDate = formatDateTZ({
+    datetime: datetime,
+    timezone: timezone,
+  });
   return (
     <div
       className={clsx(
@@ -60,6 +67,17 @@ export default function InvitationCard({
             cardStyles[theme].btnBackground,
             cardStyles[theme].btnColor
           )}
+          onClick={() =>
+            addToCalendar({
+              id,
+              datetime,
+              timezone,
+              title,
+              venue,
+              address,
+              details,
+            })
+          }
         >
           Add to your calendar
         </Button>
